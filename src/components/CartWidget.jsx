@@ -1,10 +1,10 @@
-import cart from './assets/carrito-de-compras.png'
+import cart from './../assets/carrito-de-compras.png'
 
 function CartWidget ({label}){
     return (
         <div>
             <img src={cart} alt="cart-widget"/>
-            <p>4</p>
+            <p>0</p>
         </div>
     )
 }
