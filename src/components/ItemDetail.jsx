@@ -9,7 +9,7 @@ function ItemDetail ({detail}) {
             <img src={detail.imagen} alt={detail.nombre} />
             <h1>{detail.nombre}</h1>
             <p>{detail.descripcion}</p>
-            <ItemCount/>
+            <ItemCount detail={detail}/>
         </div>
     )
 }

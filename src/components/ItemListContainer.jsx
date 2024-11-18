@@ -1,12 +1,15 @@
-import { useState , useEffect } from 'react'
+import { useState , useEffect, useContext } from 'react'
 import productos from '../data/products'
 import ItemList from './ItemList'
 import { useParams } from 'react-router-dom'
+import {cartContext} from './../context/cartContext'
+import Loader from './Loader'
 
 function ItemListContainer (){
     const [items, setItems] = useState([])
     const {cat} = useParams()
     
+    const {} = useContext (cartContext)
    
     const getProductos = () => new Promise ((res, rej) => {
         if (productos.length === 0) {
@@ -25,7 +28,7 @@ function ItemListContainer (){
     }, [cat])
     return (
         <div>
-            <ItemList items={items}/>
+            {items.length > 0 ? <ItemList items={items}/> : <Loader/>}
         </div>
      )
 }
