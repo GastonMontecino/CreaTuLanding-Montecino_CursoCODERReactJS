@@ -3,7 +3,7 @@ import productos from '../data/products'
 import ItemList from './ItemList'
 import { useParams } from 'react-router-dom'
 import {cartContext} from './../context/cartContext'
-import {getProductos} from './../firebase/db'
+import {getProductos, getCategoryProducts} from './../firebase/db'
 import Loader from './Loader'
 
 
@@ -24,8 +24,18 @@ function ItemListContainer (){
     // })
 
     useEffect( () => {
-        getProductos()
+
+        if (!cat){
+            getProductos()
         .then(res => setItems(res))
+    }
+        else {
+            getCategoryProducts(cat)
+            .then(res=> setItems(res))
+
+        }
+
+        
     //     .then(res => {const filteredItems = cat ? res.filter(item => item.categoria === cat) : res
     //     setItems(filteredItems)})
     }, [cat])

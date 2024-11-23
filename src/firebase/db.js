@@ -1,4 +1,4 @@
-import { getFirestore, collection, getDocs } from "firebase/firestore"
+import { getFirestore, collection, getDocs, query, where } from "firebase/firestore"
 import { app } from './config'
 
 const db = getFirestore(app)
@@ -13,3 +13,17 @@ querySnapshot.forEach((doc) => {
 })
 return items
 } 
+
+
+
+
+export const getCategoryProducts = async (cat) => {
+  const q = query(collection(db, "productos"), where("categoria", "==", cat));
+  const items = []
+
+const querySnapshot = await getDocs(q);
+querySnapshot.forEach((doc) => {
+  items.push(doc.data())
+})
+return items
+}

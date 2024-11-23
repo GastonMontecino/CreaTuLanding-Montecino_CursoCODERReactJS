@@ -2,20 +2,22 @@ import { useState , useEffect } from 'react'
 import productos from './../data/products'
 import ItemDetail from '../components/ItemDetail'
 import { useParams } from 'react-router-dom'
+import {getProductos, getCategoryProducts} from './../firebase/db'
+
 
 function ItemDetailContainer (){
     const [detail, setDetail] = useState()
     const {id} = useParams ()
 
-    const getProductos = () => new Promise ((res, rej) => {
-        if (productos.length === 0) {
-            rej("No se han cargado el array productos")
-        }
+    // const getProductos = () => new Promise ((res, rej) => {
+    //     if (productos.length === 0) {
+    //         rej("No se han cargado el array productos")
+    //     }
 
-        setTimeout (() =>{
-            res(productos)
-            }, 2000)
-    })
+    //     setTimeout (() =>{
+    //         res(productos)
+    //         }, 2000)
+    // })
 
     useEffect( () => {
         getProductos()
