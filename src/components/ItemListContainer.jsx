@@ -27,7 +27,7 @@ function ItemListContainer (){
 
         if (!cat){
             getProductos()
-        .then(res => setItems(res))
+            .then(res => setItems(res))
     }
         else {
             getCategoryProducts(cat)

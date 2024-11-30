@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 
 function NavBar() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-tertiary" data-bs-theme="dark">
       <Container>
         <Navbar.Brand href="#home">Tienda PHAGO</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

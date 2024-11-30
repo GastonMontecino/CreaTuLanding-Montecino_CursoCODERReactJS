@@ -2,7 +2,7 @@ import { useState , useEffect } from 'react'
 import productos from './../data/products'
 import ItemDetail from '../components/ItemDetail'
 import { useParams } from 'react-router-dom'
-import {getProductos, getCategoryProducts} from './../firebase/db'
+import {getProductos} from './../firebase/db'
 
 
 function ItemDetailContainer (){
@@ -19,7 +19,7 @@ function ItemDetailContainer (){
     //         }, 2000)
     // })
 
-    useEffect( () => {
+    useEffect( () => { //Otra opcion es traer el documento de firebase con el id, creo una funcion en db.js getDetail y la importo aqui
         getProductos()
         .then(res => {const productDetail = res.find(detail => detail.id === id)
         setDetail(productDetail);
